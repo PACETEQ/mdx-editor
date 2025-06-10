@@ -6,7 +6,7 @@
     "*.css"
   ],
   "type": "module",
-  "version": "3.35.0-paceteq-no-sandpack",
+  "version": "0.0.0-development",
   "description": "React component for rich text markdown editing",
   "scripts": {
     "build": "vite build",
@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts,.tsx",
     "test": "NODE_ENV=development vitest",
-    "semantic-release": "source .env && semantic-release",
+    "semantic-release": "source .env && semantic-release --no-ci --debug",
     "image-upload-backend": "node ./src/examples/file-backend.js",
     "export-icons": "node ./scripts/export-figma-icons.mjs"
   },
@@ -165,7 +165,15 @@
   },
   "release": {
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            { "type": "patch", "scope": "README", "release": "patch" }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
       "@semantic-release/npm"
     ],
     "branches": [
