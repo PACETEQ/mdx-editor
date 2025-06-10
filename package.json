@@ -162,7 +162,7 @@
   "packageManager": "npm@9.5.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mdx-editor/editor"
+    "url": "https://github.com/PACETEQ/mdx-editor"
   },
   "release": {
     "branches": [
